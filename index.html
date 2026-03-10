@@ -50,13 +50,14 @@
     }
 
     .nav-logo {
-      font-family: 'Arial', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
     }
 
     .nav-links {
@@ -79,14 +80,14 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
+      min-height: 80vh;
       background: var(--navy);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 4rem 2rem 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -102,8 +103,8 @@
     }
 
     .hero-logo {
-      width: clamp(120px, 20vw, 180px);
-      margin-bottom: 1.75rem;
+      width: clamp(220px, 38vw, 380px);
+      margin-bottom: 1.5rem;
       opacity: 0.95;
     }
 
@@ -487,7 +488,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Command Swag</a>
+  <a href="#hero" class="nav-logo"><img src="/assets/logo.png" alt="Command Swag" /></a>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#contact">Order</a></li>
@@ -496,9 +497,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <img src="/assets/logo.png" alt="Command Swag" class="hero-logo" />
-  <div class="hero-anchor">Custom Military Unit Gear</div>
-  <h1>Your unit's pride,<br><em>built to order.</em></h1>
+<h1>Your unit's pride,<br><em>built to order.</em></h1>
   <p>Hats, magnets, buttons, and more — custom-made for military units across all branches with your insignia and colors.</p>
   <div class="hero-buttons">
     <a href="#contact" class="btn btn-primary">Get a Quote</a>
