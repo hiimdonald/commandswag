@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Command Swag — Custom Gear for Navy Squadrons</title>
-  <meta name="description" content="Custom hats, magnets, buttons, and more for Navy squadrons. Quality squadron gear built to order." />
+  <title>Command Swag — Custom Gear for Military Units &amp; Commands</title>
+  <meta name="description" content="Custom hats, magnets, buttons, patches, and more for military units across all branches. Quality command gear built to order." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -501,9 +501,9 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-anchor">Custom Squadron Gear</div>
-  <h1>Your squadron's pride,<br><em>built to order.</em></h1>
-  <p>Hats, magnets, buttons, and more — custom-made for Navy squadrons with your insignia and colors.</p>
+  <div class="hero-anchor">Custom Military Unit Gear</div>
+  <h1>Your unit's pride,<br><em>built to order.</em></h1>
+  <p>Hats, magnets, buttons, and more — custom-made for military units across all branches with your insignia and colors.</p>
   <div class="hero-buttons">
     <a href="#contact" class="btn btn-primary">Get a Quote</a>
     <a href="#products" class="btn btn-outline">See Products</a>
@@ -514,29 +514,29 @@
 <!-- PRODUCTS -->
 <section id="products">
   <p class="section-label">What We Make</p>
-  <h2 class="section-title">Gear your crew will actually wear</h2>
-  <p class="section-sub">Everything is custom — your patch, your colors, your unit. Minimum orders vary by item.</p>
+  <h2 class="section-title">Gear your unit will actually wear</h2>
+  <p class="section-sub">Everything is custom — your insignia, your colors, your command. Army, Navy, Air Force, Marines, Coast Guard, Space Force — we've got you covered.</p>
 
   <div class="products-grid">
     <div class="product-card">
       <span class="product-icon">🧢</span>
       <h3>Hats</h3>
-      <p>Structured and unstructured caps with embroidered squadron patches and custom text.</p>
+      <p>Structured and unstructured caps with embroidered unit patches, insignia, and custom text.</p>
     </div>
     <div class="product-card">
       <span class="product-icon">🧲</span>
       <h3>Magnets</h3>
-      <p>Full-color printed magnets — great for ready rooms, lockers, and family fridges.</p>
+      <p>Full-color printed magnets — great for ready rooms, day rooms, lockers, and family fridges.</p>
     </div>
     <div class="product-card">
       <span class="product-icon">📌</span>
       <h3>Buttons &amp; Pins</h3>
-      <p>Custom pins and buttons featuring your squadron logo, airframe, or deployment art.</p>
+      <p>Custom pins and buttons featuring your unit logo, airframe, vehicle, or deployment art.</p>
     </div>
     <div class="product-card">
       <span class="product-icon">👕</span>
       <h3>Shirts &amp; Apparel</h3>
-      <p>Screen printed and embroidered shirts, polos, and hoodies for the whole squadron.</p>
+      <p>Screen printed and embroidered shirts, polos, and hoodies for the whole unit.</p>
     </div>
     <div class="product-card">
       <span class="product-icon">🪄</span>
@@ -645,15 +645,33 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="you@navy.mil" required />
+        <input type="email" id="email" name="email" placeholder="you@mail.mil" required />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label for="squadron">Squadron / Unit</label>
-        <input type="text" id="squadron" name="squadron" placeholder="e.g. VFA-103" />
+        <label for="branch">Branch</label>
+        <div class="select-wrap">
+          <select id="branch" name="branch">
+            <option value="">Select branch…</option>
+            <option>Army</option>
+            <option>Navy</option>
+            <option>Marine Corps</option>
+            <option>Air Force</option>
+            <option>Coast Guard</option>
+            <option>Space Force</option>
+            <option>Other / Civilian</option>
+          </select>
+        </div>
       </div>
+      <div class="form-group">
+        <label for="squadron">Unit / Command</label>
+        <input type="text" id="squadron" name="squadron" placeholder="e.g. VFA-103, 1-75 Rangers, VMM-265" />
+      </div>
+    </div>
+
+    <div class="form-row">
       <div class="form-group">
         <label for="product">Product Interest</label>
         <div class="select-wrap">
@@ -670,6 +688,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="form-group">
       <label for="quantity">Estimated Quantity</label>
