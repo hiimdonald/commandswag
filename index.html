@@ -101,6 +101,12 @@
         radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
     }
 
+    .hero-logo {
+      width: clamp(120px, 20vw, 180px);
+      margin-bottom: 1.75rem;
+      opacity: 0.95;
+    }
+
     .hero-anchor {
       display: inline-block;
       font-family: 'Arial', sans-serif;
@@ -303,11 +309,30 @@
     }
 
     /* ── CONTACT ── */
+    #contact-wrapper {
+      background: var(--navy);
+      position: relative;
+    }
+
+    #contact-wrapper::before {
+      content: '';
+      display: block;
+      height: 80px;
+      background: var(--white);
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
     #contact {
-      padding: 6rem 2rem;
+      padding: 2rem 2rem 6rem;
       max-width: 680px;
       margin: 0 auto;
     }
+
+    #contact .section-label { color: var(--gold); }
+
+    #contact .section-title { color: var(--white); }
+
+    #contact .section-sub { color: rgba(255,255,255,0.55); }
 
     .contact-header {
       margin-bottom: 3rem;
@@ -332,7 +357,7 @@
       font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gray);
+      color: rgba(255,255,255,0.6);
       font-weight: 600;
     }
 
@@ -386,7 +411,7 @@
 
     .form-note {
       font-size: 0.82rem;
-      color: var(--gray);
+      color: rgba(255,255,255,0.4);
     }
 
     /* ── MULTISELECT ── */
@@ -471,6 +496,7 @@
 
 <!-- HERO -->
 <section id="hero">
+  <img src="/assets/logo.png" alt="Command Swag" class="hero-logo" />
   <div class="hero-anchor">Custom Military Unit Gear</div>
   <h1>Your unit's pride,<br><em>built to order.</em></h1>
   <p>Hats, magnets, buttons, and more — custom-made for military units across all branches with your insignia and colors.</p>
@@ -551,6 +577,7 @@
 </section>
 
 <!-- CONTACT -->
+<div id="contact-wrapper">
 <section id="contact">
   <div class="contact-header">
     <p class="section-label">Get In Touch</p>
@@ -609,6 +636,7 @@
     </div>
   </form>
 </section>
+</div>
 
 <!-- FOOTER -->
 <footer>
