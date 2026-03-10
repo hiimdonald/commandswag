@@ -423,43 +423,71 @@
 
     /* ── MULTISELECT ── */
     .multiselect {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .ms-option {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.6rem 0.85rem;
-      border: 1px solid #d1d5db;
-      border-radius: var(--radius);
+      position: relative;
       cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--navy);
-      background: var(--white);
-      transition: all 0.15s;
       user-select: none;
     }
 
-    .ms-option:hover {
-      border-color: var(--gold);
-      background: rgba(201,168,76,0.05);
-    }
-
     .ms-option input[type="checkbox"] {
-      accent-color: var(--gold);
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
-    .ms-option:has(input:checked) {
+    .ms-option span {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.75) !important;
+      background: rgba(255,255,255,0.07);
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+
+    .ms-option span::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: all 0.18s;
+    }
+
+    .ms-option:hover span {
       border-color: var(--gold);
-      background: rgba(201,168,76,0.1);
-      color: var(--navy);
+      color: #ffffff !important;
+      background: rgba(201,168,76,0.12);
+    }
+
+    .ms-option input:checked ~ span {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--navy) !important;
+    }
+
+    .ms-option input:checked ~ span::before {
+      background: var(--navy);
+      border-color: var(--navy);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpolyline points='1,5 4,8 11,1' fill='none' stroke='%23c9a84c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 10px 8px;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     /* ── FOOTER ── */
@@ -484,6 +512,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
+      nav { justify-content: center; }
       .form-row { grid-template-columns: 1fr; }
       .btn-outline { margin-left: 0; margin-top: 0.75rem; }
       .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
@@ -503,7 +532,6 @@
 
 <!-- HERO -->
 <section id="hero">
-  <img src="/assets/commandswag2.png" alt="Command Swag" class="hero-img" />
 <h1>Your unit's pride,<br><em>built to order.</em></h1>
   <p>Hats, magnets, buttons, and more — custom-made for military units across all branches with your insignia and colors.</p>
   <div class="hero-buttons">
