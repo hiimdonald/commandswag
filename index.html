@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Swag — Custom Gear for Navy Squadrons</title>
+  <meta name="description" content="Custom hats, magnets, buttons, and more for Navy squadrons. Quality squadron gear built to order." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --navy-mid: #162544;
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --white: #f8f9fa;
+      --gray: #6b7280;
+      --light: #eef0f3;
+      --radius: 8px;
+      --max: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+    }
+
+    .hero-anchor {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--white);
+      font-weight: normal;
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 1.25rem;
+    }
+
+    #hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    #hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2.2rem;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-divider {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: var(--white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    /* ── PRODUCTS ── */
+    #products {
+      padding: 6rem 2rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      max-width: 540px;
+      margin-bottom: 3.5rem;
+      font-size: 1rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid transparent;
+      transition: all 0.25s;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 30px rgba(10,22,40,0.1);
+      transform: translateY(-3px);
+    }
+
+    .product-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-size: 1.05rem;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      padding: 6rem 2rem;
+      background: var(--navy);
+    }
+
+    #pricing .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    #pricing .section-title { color: var(--white); }
+    #pricing .section-sub { color: rgba(255,255,255,0.55); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: all 0.25s;
+    }
+
+    .pricing-card.featured {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .pricing-category {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-name {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .pricing-price {
+      font-family: 'Arial', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .pricing-min {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .pricing-features li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 6rem 2rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .contact-header {
+      margin-bottom: 3rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-family: 'Georgia', serif;
+      color: var(--navy);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .select-wrap { position: relative; }
+
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-mid);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .btn-outline { margin-left: 0; margin-top: 0.75rem; }
+      .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Command Swag</a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Order</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-anchor">Custom Squadron Gear</div>
+  <h1>Your squadron's pride,<br><em>built to order.</em></h1>
+  <p>Hats, magnets, buttons, and more — custom-made for Navy squadrons with your insignia and colors.</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+    <a href="#products" class="btn btn-outline">See Products</a>
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <p class="section-label">What We Make</p>
+  <h2 class="section-title">Gear your crew will actually wear</h2>
+  <p class="section-sub">Everything is custom — your patch, your colors, your unit. Minimum orders vary by item.</p>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <span class="product-icon">🧢</span>
+      <h3>Hats</h3>
+      <p>Structured and unstructured caps with embroidered squadron patches and custom text.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🧲</span>
+      <h3>Magnets</h3>
+      <p>Full-color printed magnets — great for ready rooms, lockers, and family fridges.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">📌</span>
+      <h3>Buttons &amp; Pins</h3>
+      <p>Custom pins and buttons featuring your squadron logo, airframe, or deployment art.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">👕</span>
+      <h3>Shirts &amp; Apparel</h3>
+      <p>Screen printed and embroidered shirts, polos, and hoodies for the whole squadron.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🪄</span>
+      <h3>Patches</h3>
+      <p>Embroidered morale patches, velcro-backed, in any size or shape you need.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">📦</span>
+      <h3>More</h3>
+      <p>Stickers, challenge coins, keychains — if you can put a logo on it, we can make it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="inner">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Straightforward pricing</h2>
+    <p class="section-sub">All prices are per-unit based on quantity. Contact us for exact quotes on your design and order size.</p>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <p class="pricing-category">Headwear</p>
+        <h3 class="pricing-name">Custom Hats</h3>
+        <p class="pricing-desc">Structured or unstructured caps with embroidered design.</p>
+        <div class="pricing-price">$22 <span>/ unit</span></div>
+        <p class="pricing-min">Min. order: 12 units</p>
+        <ul class="pricing-features">
+          <li>Custom embroidered patch</li>
+          <li>Multiple colorways available</li>
+          <li>Structured or unstructured fit</li>
+          <li>Adjustable strap</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="pricing-badge">Most Popular</span>
+        <p class="pricing-category">Accessories</p>
+        <h3 class="pricing-name">Magnets &amp; Buttons</h3>
+        <p class="pricing-desc">Full-color printed magnets and pinback buttons in standard sizes.</p>
+        <div class="pricing-price">$4 <span>/ unit</span></div>
+        <p class="pricing-min">Min. order: 25 units</p>
+        <ul class="pricing-features">
+          <li>Full-color artwork printing</li>
+          <li>Standard sizes (2", 3", 4")</li>
+          <li>UV-resistant coating</li>
+          <li>Custom shapes available</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Apparel</p>
+        <h3 class="pricing-name">Shirts &amp; Hoodies</h3>
+        <p class="pricing-desc">Screen print or embroidery on quality garments.</p>
+        <div class="pricing-price">$28 <span>/ unit</span></div>
+        <p class="pricing-min">Min. order: 12 units</p>
+        <ul class="pricing-features">
+          <li>Front &amp; back print options</li>
+          <li>Screen print or embroidery</li>
+          <li>Shirts, polos, and hoodies</li>
+          <li>All sizes S–5XL</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Patches &amp; Coins</p>
+        <h3 class="pricing-name">Morale Patches</h3>
+        <p class="pricing-desc">Embroidered velcro-backed patches in any shape or design.</p>
+        <div class="pricing-price">$8 <span>/ unit</span></div>
+        <p class="pricing-min">Min. order: 25 units</p>
+        <ul class="pricing-features">
+          <li>Hook &amp; loop velcro backing</li>
+          <li>Up to 12 thread colors</li>
+          <li>Any shape — die cut available</li>
+          <li>Merrowed or laser-cut edge</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="pricing-note">
+      Prices shown are estimates. Final quotes depend on artwork complexity, quantity, and product specs.<br>
+      Bulk discounts available for orders of 50+ units.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-header">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Ready to order?</h2>
+    <p class="section-sub">Fill out the form and we'll get back to you within 1–2 business days with a quote and timeline.</p>
+  </div>
+
+  <form
+    action="https://formspree.io/f/YOUR_FORM_ID"
+    method="POST"
+  >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Rank &amp; Name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@navy.mil" required />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="squadron">Squadron / Unit</label>
+        <input type="text" id="squadron" name="squadron" placeholder="e.g. VFA-103" />
+      </div>
+      <div class="form-group">
+        <label for="product">Product Interest</label>
+        <div class="select-wrap">
+          <select id="product" name="product">
+            <option value="">Select a product…</option>
+            <option>Hats</option>
+            <option>Magnets</option>
+            <option>Buttons / Pins</option>
+            <option>Shirts / Apparel</option>
+            <option>Morale Patches</option>
+            <option>Multiple / Bundle</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Estimated Quantity</label>
+      <input type="text" id="quantity" name="quantity" placeholder="e.g. 50 hats, 100 magnets" />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Tell us about your order</label>
+      <textarea id="message" name="message" placeholder="Describe your design, any reference images you have, timeline, or other details…"></textarea>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit" class="btn btn-primary">Send My Request</button>
+      <span class="form-note">No spam. We only use your info to follow up on your order.</span>
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    &copy; 2026 Command Swag &nbsp;·&nbsp;
+    <a href="mailto:orders@commandswag.co">orders@commandswag.co</a>
+    &nbsp;·&nbsp; commandswag.co
+  </p>
+</footer>
+
+</body>
+</html>
