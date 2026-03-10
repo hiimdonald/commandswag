@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Command Swag — Custom Gear for Military Units &amp; Commands</title>
   <meta name="description" content="Custom hats, magnets, buttons, patches, and more for military units across all branches. Quality command gear built to order." />
+  <link rel="canonical" href="https://commandswag.shop" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -206,15 +207,14 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.75rem;
     }
 
     .product-card {
       background: var(--light);
       border-radius: 12px;
-      padding: 2rem 1.5rem;
-      text-align: center;
+      overflow: hidden;
       border: 1px solid transparent;
       transition: all 0.25s;
     }
@@ -225,151 +225,72 @@
       transform: translateY(-3px);
     }
 
-    .product-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+    .product-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #dde1e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a0a8b4;
+    }
+
+    .product-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+    }
+
+    .product-body {
+      padding: 1.4rem 1.5rem 1.6rem;
     }
 
     .product-card h3 {
       font-size: 1.05rem;
       font-weight: bold;
       font-family: 'Arial', sans-serif;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       color: var(--navy);
     }
 
     .product-card p {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: var(--gray);
       line-height: 1.5;
-    }
-
-    /* ── PRICING ── */
-    #pricing {
-      padding: 6rem 2rem;
-      background: var(--navy);
-    }
-
-    #pricing .inner {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    #pricing .section-title { color: var(--white); }
-    #pricing .section-sub { color: rgba(255,255,255,0.55); }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .pricing-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 2rem 1.75rem;
-      transition: all 0.25s;
-    }
-
-    .pricing-card.featured {
-      background: rgba(201,168,76,0.12);
-      border-color: var(--gold);
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-    }
-
-    .pricing-badge {
-      display: inline-block;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.2rem 0.65rem;
-      border-radius: 100px;
       margin-bottom: 1rem;
-      font-weight: 700;
     }
 
-    .pricing-category {
+    .product-price {
       font-family: 'Arial', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-
-    .pricing-name {
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-
-    .pricing-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-    }
-
-    .pricing-price {
-      font-family: 'Arial', sans-serif;
-      font-size: 2rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.25rem;
+      color: var(--navy);
     }
 
-    .pricing-price span {
-      font-size: 0.9rem;
+    .product-price span {
+      font-size: 0.8rem;
       font-weight: normal;
-      color: rgba(255,255,255,0.5);
+      color: var(--gray);
+      margin-left: 0.25rem;
     }
 
-    .pricing-min {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
-    }
-
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .pricing-features li {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.65);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .pricing-features li::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: bold;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .pricing-note {
+    .bulk-note {
       margin-top: 3rem;
-      text-align: center;
+      padding: 1rem 1.5rem;
+      background: rgba(201,168,76,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.4);
+      color: var(--gray);
+    }
+
+    .bulk-note strong {
+      color: var(--navy);
     }
 
     /* ── CONTACT ── */
@@ -535,7 +456,6 @@
   <a href="#hero" class="nav-logo">Command Swag</a>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
-    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact">Order</a></li>
   </ul>
 </nav>
@@ -555,115 +475,69 @@
 <!-- PRODUCTS -->
 <section id="products">
   <p class="section-label">What We Make</p>
-  <h2 class="section-title">Gear your unit will actually wear</h2>
+  <h2 class="section-title">Custom gear for every branch</h2>
   <p class="section-sub">Everything is custom — your insignia, your colors, your command. Army, Navy, Air Force, Marines, Coast Guard, Space Force — we've got you covered.</p>
 
   <div class="products-grid">
+
     <div class="product-card">
-      <span class="product-icon">🧢</span>
-      <h3>Adult Hats</h3>
-      <p>Structured caps with your unit's custom embroidered insignia, patch, or text.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Adult Hats</h3>
+        <p>Structured caps with your unit's custom embroidered insignia, patch, or text.</p>
+        <div class="product-price">$20 <span>/ unit</span></div>
+      </div>
     </div>
+
     <div class="product-card">
-      <span class="product-icon">👒</span>
-      <h3>Kids Hats</h3>
-      <p>Sized for the little ones — same great custom embroidery as the adult version.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Kids Hats</h3>
+        <p>Sized for the little ones — same great custom embroidery as the adult version.</p>
+        <div class="product-price">$15 <span>/ unit</span></div>
+      </div>
     </div>
+
     <div class="product-card">
-      <span class="product-icon">🧲</span>
-      <h3>Photo Magnets</h3>
-      <p>Round 2¼" full-color photo magnets — perfect for lockers, fridges, and ready rooms.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Photo Magnets</h3>
+        <p>Round 2¼" full-color photo magnets — perfect for lockers, fridges, and ready rooms.</p>
+        <div class="product-price">$1.50 <span>/ unit</span></div>
+      </div>
     </div>
+
     <div class="product-card">
-      <span class="product-icon">🍺</span>
-      <h3>Photo Bottle Openers</h3>
-      <p>Round 2¼" bottle openers with your unit's photo or artwork printed on the face.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Photo Bottle Openers</h3>
+        <p>Round 2¼" bottle openers with your unit's photo or artwork printed on the face.</p>
+        <div class="product-price">$2.50 <span>/ unit</span></div>
+      </div>
     </div>
+
     <div class="product-card">
-      <span class="product-icon">🪡</span>
-      <h3>Leather Patches</h3>
-      <p>Laser-engraved leather patches with your insignia — rugged, sharp, and distinctive.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Leather Patches</h3>
+        <p>Laser-engraved leather patches with velcro hook &amp; loop backing — rugged and distinctive.</p>
+        <div class="product-price">$8 <span>/ unit</span></div>
+      </div>
     </div>
+
     <div class="product-card">
-      <span class="product-icon">🔩</span>
-      <h3>Leather Bottle Openers</h3>
-      <p>Leather-wrapped bottle openers laser-engraved with your unit's logo or crest.</p>
+      <div class="product-photo">Photo coming soon</div>
+      <div class="product-body">
+        <h3>Leather Bottle Openers</h3>
+        <p>Leather-wrapped bottle openers laser-engraved with your unit's logo or crest.</p>
+        <div class="product-price">$10 <span>/ unit</span></div>
+      </div>
     </div>
+
   </div>
-</section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="inner">
-    <p class="section-label">Pricing</p>
-    <h2 class="section-title">Straightforward pricing</h2>
-    <p class="section-sub">All prices are per-unit based on quantity. Contact us for exact quotes on your design and order size.</p>
-
-    <div class="pricing-grid">
-
-      <div class="pricing-card">
-        <p class="pricing-category">Headwear</p>
-        <h3 class="pricing-name">Custom Hats</h3>
-        <p class="pricing-desc">Structured or unstructured caps with embroidered design.</p>
-        <div class="pricing-price">$22 <span>/ unit</span></div>
-        <p class="pricing-min">Min. order: 12 units</p>
-        <ul class="pricing-features">
-          <li>Custom embroidered patch</li>
-          <li>Multiple colorways available</li>
-          <li>Structured or unstructured fit</li>
-          <li>Adjustable strap</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card featured">
-        <span class="pricing-badge">Most Popular</span>
-        <p class="pricing-category">Accessories</p>
-        <h3 class="pricing-name">Magnets &amp; Buttons</h3>
-        <p class="pricing-desc">Full-color printed magnets and pinback buttons in standard sizes.</p>
-        <div class="pricing-price">$4 <span>/ unit</span></div>
-        <p class="pricing-min">Min. order: 25 units</p>
-        <ul class="pricing-features">
-          <li>Full-color artwork printing</li>
-          <li>Standard sizes (2", 3", 4")</li>
-          <li>UV-resistant coating</li>
-          <li>Custom shapes available</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card">
-        <p class="pricing-category">Apparel</p>
-        <h3 class="pricing-name">Shirts &amp; Hoodies</h3>
-        <p class="pricing-desc">Screen print or embroidery on quality garments.</p>
-        <div class="pricing-price">$28 <span>/ unit</span></div>
-        <p class="pricing-min">Min. order: 12 units</p>
-        <ul class="pricing-features">
-          <li>Front &amp; back print options</li>
-          <li>Screen print or embroidery</li>
-          <li>Shirts, polos, and hoodies</li>
-          <li>All sizes S–5XL</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card">
-        <p class="pricing-category">Patches &amp; Coins</p>
-        <h3 class="pricing-name">Morale Patches</h3>
-        <p class="pricing-desc">Embroidered velcro-backed patches in any shape or design.</p>
-        <div class="pricing-price">$8 <span>/ unit</span></div>
-        <p class="pricing-min">Min. order: 25 units</p>
-        <ul class="pricing-features">
-          <li>Hook &amp; loop velcro backing</li>
-          <li>Up to 12 thread colors</li>
-          <li>Any shape — die cut available</li>
-          <li>Merrowed or laser-cut edge</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <p class="pricing-note">
-      Prices shown are estimates. Final quotes depend on artwork complexity, quantity, and product specs.<br>
-      Bulk discounts available for orders of 50+ units.
-    </p>
+  <div class="bulk-note">
+    <strong>Bulk orders only</strong> — minimum 50 units per item. Prices shown are per unit. <a href="#contact" style="color:var(--gold);text-decoration:none;">Contact us</a> for a custom quote.
   </div>
 </section>
 
@@ -731,8 +605,8 @@
 <footer>
   <p>
     &copy; 2026 Command Swag &nbsp;·&nbsp;
-    <a href="mailto:orders@commandswag.co">orders@commandswag.co</a>
-    &nbsp;·&nbsp; commandswag.co
+    <a href="mailto:orders@commandswag.shop">orders@commandswag.shop</a>
+    &nbsp;·&nbsp; commandswag.shop
   </p>
 </footer>
 
